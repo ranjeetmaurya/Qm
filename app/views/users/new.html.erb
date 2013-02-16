@@ -1,0 +1,9 @@
+<div class="container">
+	<%= form_for @user, :html => { :class => "form-signin"} do |f| %>
+		<%= render "about", :f => f %>
+		<%= render "need", :f => f %>	
+		<%= render "offering", :f => f %>	
+		<%= render "ways_to_connect", :f => f %>		
+	  <p><%= f.submit "Continue", :class => "btn btn-large btn-primary"  %></p>
+	<%end%>
+</div>
