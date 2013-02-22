@@ -4,5 +4,6 @@ class AddFirstNameCompanyNameLastNameZipCodeToUsers < ActiveRecord::Migration
     add_column :users, :last_name, :string
     add_column :users, :company_name, :string
     add_column :users, :zip_code, :string
+    add_column :users, :company_url, :string
   end
 end
