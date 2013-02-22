@@ -35,7 +35,8 @@ QuickieMeet::Application.routes.draw do
 
     resources :users do
       member do 
-        get 'profile' 
+        get 'profile'
+        get 'sign_up_success' 
       end
     end
 
