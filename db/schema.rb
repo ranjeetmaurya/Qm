@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216122807) do
+ActiveRecord::Schema.define(:version => 20130219115613) do
+
+  create_table "meetings", :force => true do |t|
+    t.string   "meeting_details"
+    t.datetime "meeting_time"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "needs", :force => true do |t|
     t.string   "title"
@@ -27,42 +34,38 @@ ActiveRecord::Schema.define(:version => 20130216122807) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_needs", :force => true do |t|
+  create_table "user_meetings", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "need_id"
+    t.integer  "meeting_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_offerings", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "offering_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                   :default => "", :null => false
+    t.string   "encrypted_password",      :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",           :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "company_name"
     t.string   "zip_code"
-    t.string   "google_plus"
+    t.string   "company_url"
+    t.string   "google_plus_profile_url"
     t.string   "skype"
     t.integer  "phone"
+    t.string   "linked_in_image_url"
+    t.string   "linked_public_profile"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
