@@ -1,12 +1,4 @@
 <h2 class="form-signin-heading">I am offering<h2>
 <%= f.fields_for :offerings do |builder| %>
-	<%= builder.text_field :title, :class => "input-block-level"%>
+	<%= builder.text_field :title, :class => "input-block-level", "data-provide"=>"typeahead", "data-items"=>"4", "data-source"=>"[&quot;designer&quot;,&quot;Attorney&quot;,&quot;painter&quot;,&quot;Accountant&quot;]".html_safe %>
 <%end%>
-<!-- 	<%= text_field_tag "user[offerings][]", nil, :placeholder => "Offering 1", :class => "input-block-level"%>
-	<br>	
-	<%= text_field_tag "user[offerings][]", nil, :placeholder => "Offering 2", :class => "input-block-level"%>
-	<br>
-	<%= text_field_tag "user[offerings][]", nil, :placeholder => "Offering 3", :class => "input-block-level"%>
-	<br>	
-	<%= text_field_tag "user[offerings][]", nil, :placeholder => "Offering 4", :class => "input-block-level"%>
-	<br> -->

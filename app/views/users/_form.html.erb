@@ -1,0 +1,32 @@
+	
+	<%= form_for @user, :html => { :class => "form-signin", :autocomplete=>"off"} do |f| %>
+	  <% if @user.errors.any? %>
+		  <div id="errorExplanation" class="alert">
+		    <ul>
+		    <% @user.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
+		    </ul>
+		  </div>
+	  <% end %>
+	  <%if @user.new_record?%>	
+			<%= render "#{@user.current_step}", :f => f %>
+		<%else%>
+			<%= render "about", :f => f %>
+			<%= render "need", :f => f %>	
+			<%= render "offering", :f => f %>	
+			<%= render "ways_to_connect", :f => f %>
+		<%end%>
+		<%= f.hidden_field :linked_in_image_url%>
+		<%= f.hidden_field :linked_public_profile%>
+		<div class="container">
+			<div class="row">
+				<div class="span2">
+					<p><%= f.submit "Back", :name => "back_button",  :class => "btn btn-primary" unless @user.first_step? %></p>
+				</div>
+				<div class="span7">		
+		  		<p><%= f.submit button_name(@user), :class => "btn btn-primary" %></p>
+		  	</div>
+		  </div>
+		</div>
+	<%end%>
